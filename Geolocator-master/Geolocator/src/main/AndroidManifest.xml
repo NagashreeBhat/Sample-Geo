@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sample.geolocator">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application>
+
+        <receiver
+            android:name="com.sample.geolocator.geofencer.service.GeofenceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.sample.geolocator.geofencer.service.GeofenceBootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <!--For HTC devices-->
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.sample.geolocator.geofencer.service.GeofenceBootService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+
+        <service
+            android:name="com.sample.geolocator.tracking.service.LocationTrackerUpdateIntentService"
+            android:exported="false" />
+
+        <receiver android:name="com.sample.geolocator.tracking.service.LocationTrackerUpdateBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sample.geolocator.tracking.service.ACTION_PROCESS_UPDATES" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
