@@ -1,5 +1,5 @@
 
-![
+
      
 ### Requirmenets
 
@@ -127,7 +127,7 @@ LocationTracker.INSTANCE.removeLocationUpdates(this);
 
 
 
-##### Step 1. Add the JitPack repository to your build file
+#####  Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
 
@@ -136,11 +136,7 @@ Add it in your root build.gradle at the end of repositories:
 			maven { url 'https://jitpack.io' }
 		}
 	}
-##### Step 2. Add the dependency
 
-	dependencies {
-		implementation 'com.github.exozet:Geolocator:latest'
-	}
 	
 ### Configuration
 
@@ -151,9 +147,7 @@ Default Location tracking update intervals can be overriden, by adding following
     <integer name="location_max_wait_time_interval_in_millis">0</integer>
     <integer name="location_min_distance_for_updates_in_meters">0</integer>
 
-### Known Issues
 
-- does not work when in doze mode [#2](https://github.com/exozet/Geolocator/issues/2)
 
 
 
